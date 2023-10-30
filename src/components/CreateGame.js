@@ -77,7 +77,7 @@ export default class CreateGame extends Component {
     if (this.state.name === "") {
       //TODO  handle error
       console.log("Please enter a name");
-      this.setState({ errorMsg: "Please enter a name" });
+      this.setState({ errorMsg: "Por favor, insira um nick" });
       this.setState({ isError: true });
       return;
     }
@@ -96,7 +96,7 @@ export default class CreateGame extends Component {
         console.log("error in creating namespace", err);
         bind.setState({ isLoading: false });
         bind.setState({
-          errorMsg: "Error creating room, server is unreachable",
+          errorMsg: "Erro na criação de sala, servidor está inacessível",
         });
         bind.setState({ isError: true });
       });
@@ -124,40 +124,37 @@ export default class CreateGame extends Component {
     if (this.state.isGameStarted) {
       return <Coup name={this.state.name} socket={this.state.socket}></Coup>;
     }
+
     let error = null;
     let roomCode = null;
     let startGame = null;
     let createButton = null;
     let youCanSort = null;
+
     if (!this.state.isInRoom) {
       createButton = (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
+        <div>
           <button
             className="createButton btn-def hover"
             onClick={this.createParty}
-            style={{ width: "150px" }}
             disabled={this.state.isLoading}
           >
             {this.state.isLoading ? "Criando..." : "Criar"}
           </button>
-          <br></br>
         </div>
       );
     }
+
     if (this.state.isError) {
       error = <b>{this.state.errorMsg}</b>;
     }
+
     if (this.state.roomCode !== "" && !this.state.isLoading) {
       youCanSort = <p></p>;
       roomCode = (
         <div>
           <p>
-            SALA: <br></br> <br></br>
+            SALA:
             <b className="RoomCode" onClick={this.copyCode}>
               {this.state.roomCode}{" "}
               <span
@@ -171,6 +168,7 @@ export default class CreateGame extends Component {
         </div>
       );
     }
+
     if (this.state.canStart) {
       startGame = (
         <button className="startGameButton" onClick={this.startGame}>
@@ -178,13 +176,13 @@ export default class CreateGame extends Component {
         </button>
       );
     }
+
     return (
       <div className="createGameContainer">
-        <p style={{ marginLeft: "-120px" }}>Nick:</p>
         <input
           type="text"
+          placeholder="Nick"
           value={this.state.name}
-          style={{ width: "150px" }}
           disabled={this.state.isLoading || this.state.isInRoom}
           onChange={(e) => {
             if (e.target.value.length <= 10) {
@@ -195,16 +193,14 @@ export default class CreateGame extends Component {
               this.onNameChange(e.target.value);
             } else {
               this.setState({
-                errorMsg: "Name must be less than 11 characters",
+                errorMsg: "O nome deve ter mmenos de 11 caracteres",
                 isError: true,
               });
             }
           }}
         />
-        <br></br>
         {createButton}
         {error}
-        <br></br>
         {roomCode}
         {youCanSort}
         <div className="readyUnitContainer">

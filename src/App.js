@@ -10,16 +10,16 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <div>
+        <div className="mainContainer">
           <Switch>
             <Route path="/create">
-              <CreateGame></CreateGame>
+              <CreateGame />
             </Route>
             <Route path="/join">
-              <JoinGame></JoinGame>
+              <JoinGame />
             </Route>
             <Route path="/">
-              <Home></Home>
+              <Home />
             </Route>
           </Switch>
         </div>

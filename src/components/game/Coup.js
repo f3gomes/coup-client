@@ -48,7 +48,7 @@ export default class Coup extends Component {
       <>
         <br></br>
         <button
-          className="startGameButton"
+          className="startGameButton hover"
           onClick={() => {
             this.props.socket.emit("g-playAgain");
           }}
@@ -63,7 +63,7 @@ export default class Coup extends Component {
     });
 
     this.props.socket.on("g-gameOver", (winner) => {
-      bind.setState({ winner: `${winner} Wins!` });
+      bind.setState({ winner: `${winner} venceu!` });
       bind.setState({ playAgain: bind.playAgainButton });
     });
     this.props.socket.on("g-updatePlayers", (players) => {
@@ -294,7 +294,7 @@ export default class Coup extends Component {
     }
     if (this.state.currentPlayer) {
       currentPlayer = (
-        <p style={{ marginTop: "-4px" }}>
+        <p>
           Vez de <b>{this.state.currentPlayer}</b>
         </p>
       );

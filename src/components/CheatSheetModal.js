@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactModal from "react-modal";
-import CheatSheet from "../assets/CheatSheet.svg";
+import CheatSheet from "../assets/cards.png";
 
 export default class CheatSheetModal extends Component {
   constructor(props) {

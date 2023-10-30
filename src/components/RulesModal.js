@@ -102,16 +102,16 @@ export default class RulesModal extends Component {
             <h3>Capitão</h3>
             <p>
               <b id="captain-color">ROUBAR</b>: Rouba duas moedas de um alvo.
-              Pode ser bloqueado por: <hl id="captain-color">Capitão</hl> or{" "}
-              <hl id="ambassador-color">Embaixador</hl>. Pode bloquear:{" "}
-              <hl id="captain-color">ROUBAR</hl>
+              Pode ser bloqueado por: <strong id="captain-color">Capitão</strong> or{" "}
+              <strong id="ambassador-color">Embaixador</strong>. Pode bloquear:{" "}
+              <strong id="captain-color">ROUBAR</strong>
             </p>
             <hr />
             <h3>Assassino</h3>
             <p>
               <b id="assassin-color">ASSASINAR</b>: Pague 3 moedas para escolher
               um alvo para assassinar (o alvo perde uma influência). Pode ser
-              bloqueado por: <hl id="contessa-color">Condessa</hl>.
+              bloqueado por: <strong id="contessa-color">Condessa</strong>.
             </p>
             <hr />
             <h3>Duque</h3>
@@ -124,7 +124,7 @@ export default class RulesModal extends Component {
             <p>
               <b id="ambassador-color">TROCAR </b>: Escolha 2 influencia em seu
               Mãe e escolha duas carta para recuperar. Não pode ser bloqueado.
-              Pode bloquear <hl id="captain-color">ROUBAR</hl>
+              Pode bloquear <strong id="captain-color">ROUBAR</strong>
             </p>
             <hr />
             <h3>Condessa</h3>
@@ -139,7 +139,7 @@ export default class RulesModal extends Component {
             </p>
             <p>
               <b> Ajuda externa </b>: colete 2 moedas do tesouro. Bloqueável por{" "}
-              <hl id="duke-color">Duque</hl>.
+              <strong id="duke-color">Duque</strong>.
             </p>
             <p>
               <b> Golpe </b>: Pague 7 moedas e escolha um alvo para perder uma

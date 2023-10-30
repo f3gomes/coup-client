@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import cover from "../assets/cover.jpg";
+import cover from "../assets/cover.png";
 import RulesModal from "./RulesModal";
 
 export default class Home extends Component {
@@ -8,8 +8,8 @@ export default class Home extends Component {
     return (
       <>
         <div className="homeContainer">
-          <h1>Welcome to Coup</h1>
-          <p>A game of deduction and deception</p>
+          <h1>Bem-vindo ao Coup</h1>
+          <p>Um jogo de dedução e engano</p>
           <a
             target="_blank"
             rel="noreferrer"
@@ -23,12 +23,12 @@ export default class Home extends Component {
           </a>
           <div className="input-group-btn">
             <Link className="home hover" to="/create">
-              Create Game
+              Criar Jogo
             </Link>
           </div>
           <div className="input-group-btn">
             <Link className="home hover" to="/join">
-              Join Game
+              Entrar
             </Link>
           </div>
           <div>
@@ -39,7 +39,7 @@ export default class Home extends Component {
         </div>
         <div className="footer">
           <div style={{ marginBottom: "12px" }}>
-            Made by{" "}
+            Feito por{" "}
             <a
               className="website-link"
               href="https://github.com/cheneth"
@@ -51,7 +51,7 @@ export default class Home extends Component {
           </div>
 
           <div>
-            Translate by{" "}
+            Traduzido por{" "}
             <a
               className="website-link"
               href="https://github.com/fomes"
@@ -61,7 +61,7 @@ export default class Home extends Component {
             >
               Felipe Gomes
             </a>
-            <b>Google Tradutor</b>
+            <b> Google Tradutor</b>
           </div>
         </div>
         <p className="version-number">Beta v0.9</p>

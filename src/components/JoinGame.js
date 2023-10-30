@@ -161,7 +161,6 @@ export default class JoinGame extends Component {
       joinReady = (
         <button
           className="joinButton hover"
-          style={{ width: "150px" }}
           onClick={this.attemptJoinParty}
           disabled={this.state.isLoading}
         >
@@ -176,11 +175,10 @@ export default class JoinGame extends Component {
 
     return (
       <div className="joinGameContainer">
-        <p style={{ marginLeft: "-120px" }}>Nick:</p>
         <input
           type="text"
+          placeholder="Nick"
           value={this.state.name}
-          style={{ width: "150px" }}
           disabled={this.state.isLoading}
           onChange={(e) => {
             if (e.target.value.length <= 8) {
@@ -191,25 +189,22 @@ export default class JoinGame extends Component {
               this.onNameChange(e.target.value);
             } else {
               this.setState({
-                errorMsg: "Name must be less than 9 characters",
+                errorMsg: "O nome deve ter menos que 9 caracteres",
                 isError: true,
               });
             }
           }}
         />
-        <p style={{ marginLeft: "-120px" }}>Sala</p>
         <input
           type="text"
+          placeholder="Sala"
           value={this.state.roomCode}
-          style={{ width: "150px" }}
           disabled={this.state.isLoading}
           onChange={(e) => this.onCodeChange(e.target.value)}
         />
-        <br></br>
+
         {joinReady}
-        <br></br>
         {ready}
-        <br></br>
         {error}
         <div className="readyUnitContainer">
           {this.state.players.map((item, index) => {
