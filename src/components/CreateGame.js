@@ -131,29 +131,33 @@ export default class CreateGame extends Component {
     let youCanSort = null;
     if (!this.state.isInRoom) {
       createButton = (
-        <>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
           <button
-            className="createButton"
+            className="createButton btn-def hover"
             onClick={this.createParty}
+            style={{ width: "150px" }}
             disabled={this.state.isLoading}
           >
-            {this.state.isLoading ? "Creating..." : "Create"}
+            {this.state.isLoading ? "Criando..." : "Criar"}
           </button>
           <br></br>
-        </>
+        </div>
       );
     }
     if (this.state.isError) {
       error = <b>{this.state.errorMsg}</b>;
     }
     if (this.state.roomCode !== "" && !this.state.isLoading) {
-      youCanSort = (
-        <p>You can drag to re-arrange the players in a specific turn order!</p>
-      );
+      youCanSort = <p></p>;
       roomCode = (
         <div>
           <p>
-            ROOM CODE: <br></br> <br></br>
+            SALA: <br></br> <br></br>
             <b className="RoomCode" onClick={this.copyCode}>
               {this.state.roomCode}{" "}
               <span
@@ -163,23 +167,24 @@ export default class CreateGame extends Component {
               ></span>
             </b>
           </p>
-          {this.state.copied ? <p>Copied to clipboard</p> : null}
+          {this.state.copied ? <p>Copiado!</p> : null}
         </div>
       );
     }
     if (this.state.canStart) {
       startGame = (
         <button className="startGameButton" onClick={this.startGame}>
-          Start Game
+          Iniciar
         </button>
       );
     }
     return (
       <div className="createGameContainer">
-        <p>Please enter your name</p>
+        <p style={{ marginLeft: "-120px" }}>Nick:</p>
         <input
           type="text"
           value={this.state.name}
+          style={{ width: "150px" }}
           disabled={this.state.isLoading || this.state.isInRoom}
           onChange={(e) => {
             if (e.target.value.length <= 10) {
@@ -211,10 +216,10 @@ export default class CreateGame extends Component {
               let ready = null;
               let readyUnitColor = "#E46258";
               if (item.isReady) {
-                ready = <b>Ready!</b>;
+                ready = <b>Pronto!</b>;
                 readyUnitColor = "#73C373";
               } else {
-                ready = <b>Not Ready</b>;
+                ready = <b>Aguardando...</b>;
               }
               return (
                 <div

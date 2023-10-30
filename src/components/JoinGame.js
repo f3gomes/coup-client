@@ -81,9 +81,9 @@ export default class JoinGame extends Component {
   attemptJoinParty = () => {
     if (this.state.name === "") {
       //TODO  handle error
-      console.log("Please enter a name");
+      console.log("Digite seu nick!");
       this.setState({
-        errorMsg: "Please enter a name",
+        errorMsg: "Digite seu nick!",
         isError: true,
       });
       return;
@@ -111,10 +111,10 @@ export default class JoinGame extends Component {
           bind.joinParty();
         } else {
           //TODO  handle error
-          console.log("Invalid Party Code");
+          console.log("Código inválido!");
           bind.setState({
             isLoading: false,
-            errorMsg: "Invalid Party Code",
+            errorMsg: "Código inválido!",
             isError: true,
           });
         }
@@ -154,17 +154,18 @@ export default class JoinGame extends Component {
           onClick={this.reportReady}
           disabled={this.state.isReady}
         >
-          Ready
+          Estou pronto!
         </button>
       );
     } else {
       joinReady = (
         <button
-          className="joinButton"
+          className="joinButton hover"
+          style={{ width: "150px" }}
           onClick={this.attemptJoinParty}
           disabled={this.state.isLoading}
         >
-          {this.state.isLoading ? "Joining..." : "Join"}
+          {this.state.isLoading ? "Entrando..." : "Entrar"}
         </button>
       );
     }
@@ -175,10 +176,11 @@ export default class JoinGame extends Component {
 
     return (
       <div className="joinGameContainer">
-        <p>Your Name</p>
+        <p style={{ marginLeft: "-120px" }}>Nick:</p>
         <input
           type="text"
           value={this.state.name}
+          style={{ width: "150px" }}
           disabled={this.state.isLoading}
           onChange={(e) => {
             if (e.target.value.length <= 8) {
@@ -195,10 +197,11 @@ export default class JoinGame extends Component {
             }
           }}
         />
-        <p>Room Code</p>
+        <p style={{ marginLeft: "-120px" }}>Sala</p>
         <input
           type="text"
           value={this.state.roomCode}
+          style={{ width: "150px" }}
           disabled={this.state.isLoading}
           onChange={(e) => this.onCodeChange(e.target.value)}
         />
@@ -213,10 +216,10 @@ export default class JoinGame extends Component {
             let ready = null;
             let readyUnitColor = "#E46258";
             if (item.isReady) {
-              ready = <b>Ready!</b>;
+              ready = <b>Pronto!</b>;
               readyUnitColor = "#73C373";
             } else {
-              ready = <b>Not Ready</b>;
+              ready = <b>Aguardando...</b>;
             }
             return (
               <div

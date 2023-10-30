@@ -194,3 +194,9 @@ button {
   transition-property: all;
   transition-duration: 300ms;
 }
+
+.btn-def {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
