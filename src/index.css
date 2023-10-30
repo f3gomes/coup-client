@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background-color: cadetblue;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -21,6 +22,7 @@ h3 {
 
 .mainContainer {
   background-color: cadetblue;
+  width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -86,16 +88,12 @@ button {
 
 .footer {
   position: absolute;
-  width: 90vw;
-  margin-left: 5vw;
+  width: 100vw;
   bottom: 20px;
 }
 
 .homeContainer {
-  position: absolute;
-  width: 90vw;
-  margin-left: 5vw;
-  top: 8vh;
+  width: 100vw;
 }
 
 .homeModalContainer {

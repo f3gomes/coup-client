@@ -27,40 +27,12 @@ export default class RulesModal extends Component {
         onRequestClose={this.handleCloseRulesModal}
         shouldCloseOnOverlayClick={true}
       >
-        <div className="CloseModalButtonContainer">
-          <button
-            className="CloseModalButton"
-            onClick={this.handleCloseRulesModal}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="21"
-              height="21"
-              viewBox="0 0 21 21"
-            >
-              <g
-                id="more_info"
-                data-name="more info"
-                transform="translate(-39 -377)"
-              >
-                <g
-                  id="Ellipse_1"
-                  data-name="Ellipse 1"
-                  className="cls-5"
-                  transform="translate(39 377)"
-                >
-                  <circle className="cls-7" cx="10.5" cy="10.5" r="10.5" />
-                  <circle className="cls-8" cx="10.5" cy="10.5" r="10" />
-                </g>
-                <text id="x" className="cls-6" transform="translate(46 391)">
-                  <tspan x="0" y="0">
-                    x
-                  </tspan>
-                </text>
-              </g>
-            </svg>
-          </button>
-        </div>
+        <button
+          className="CloseModalButton"
+          onClick={this.handleCloseRulesModal}
+        >
+          x
+        </button>
 
         <div className="RulesContainer">
           <div className="RulesContent">
@@ -94,15 +66,13 @@ export default class RulesModal extends Component {
               Se um jogador perder todas as suas cartas, ele estará fora do
               jogo. O último jogador em pé vence!
             </p>
-            <p>
-              Neste momento, caso um jogador se desconecte, o jogo deverá ser
-              recriado.
-            </p>
+
             <h2>Cartas</h2>
             <h3>Capitão</h3>
             <p>
               <b id="captain-color">ROUBAR</b>: Rouba duas moedas de um alvo.
-              Pode ser bloqueado por: <strong id="captain-color">Capitão</strong> or{" "}
+              Pode ser bloqueado por:{" "}
+              <strong id="captain-color">Capitão</strong> or{" "}
               <strong id="ambassador-color">Embaixador</strong>. Pode bloquear:{" "}
               <strong id="captain-color">ROUBAR</strong>
             </p>

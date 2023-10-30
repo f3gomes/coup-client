@@ -5,21 +5,16 @@ export default function PlayerBoard(props) {
   let boardItems = null;
   if (props.players.length > 1) {
     boardItems = props.players.map((player, index) => (
-      <span
+      <div
+        key={index}
         className="PlayerBoardItem"
         style={{ backgroundColor: `${player.color}` }}
-        key={index}
       >
         <h2>{player.name}</h2>
-        <p>Moedas: {player.money}</p>
-        <p>Cartas: {player.influences.length}</p>
-        {/* <p>{player.influences.join(', ')}</p> */}
-      </span>
+        <p>{player.money} moedas</p>
+        <p>{player.influences.length} cartas</p>
+      </div>
     ));
   }
-  return (
-    <div className="PlayerBoardContainer" style={{ textAlign: "center" }}>
-      {boardItems}
-    </div>
-  );
+  return <div className="PlayerBoardContainer">{boardItems}</div>;
 }

@@ -1,22 +1,23 @@
 .PlayerBoardItem {
-  background-color: #73c373;
-  margin-bottom: 20px;
-  padding: 5px;
-  display: inline-block;
-  margin-right: 10px;
+  margin-bottom: 10px;
   margin-left: 10px;
   border-radius: 5px;
+  font-weight: 500;
+  height: 4.3rem;
+  width: 7rem;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .PlayerBoardItem h2 {
-  margin-top: 10px;
-  font-weight: lighter;
-  color: white;
-  line-height: 80%;
+  font-size: 1.2rem;
+  height: 10px;
+  margin-top: -1px;
+  font-weight: 600;
 }
 
 .PlayerBoardItem p {
-  line-height: 50%;
-  font-weight: regular;
-  color: white;
+  height: 10px;
+  margin-top: -2px;
 }

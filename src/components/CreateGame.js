@@ -77,7 +77,7 @@ export default class CreateGame extends Component {
     if (this.state.name === "") {
       //TODO  handle error
       console.log("Please enter a name");
-      this.setState({ errorMsg: "Por favor, insira um nick" });
+      this.setState({ errorMsg: "Digite seu nick" });
       this.setState({ isError: true });
       return;
     }
@@ -150,7 +150,6 @@ export default class CreateGame extends Component {
     }
 
     if (this.state.roomCode !== "" && !this.state.isLoading) {
-      youCanSort = <p></p>;
       roomCode = (
         <div>
           <p>
@@ -180,6 +179,7 @@ export default class CreateGame extends Component {
     return (
       <div className="createGameContainer">
         <input
+          name="nick"
           type="text"
           placeholder="Nick"
           value={this.state.name}

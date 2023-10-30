@@ -83,7 +83,7 @@ export default class JoinGame extends Component {
       //TODO  handle error
       console.log("Digite seu nick!");
       this.setState({
-        errorMsg: "Digite seu nick!",
+        errorMsg: "Digite seu nick",
         isError: true,
       });
       return;
@@ -92,7 +92,7 @@ export default class JoinGame extends Component {
       //TODO  handle error
       console.log("Please enter a room code");
       this.setState({
-        errorMsg: "Please enter a room code",
+        errorMsg: "Por favor, insira um código de sala",
         isError: true,
       });
       return;
@@ -169,13 +169,14 @@ export default class JoinGame extends Component {
       );
     }
     if (this.state.isReady) {
-      ready = <b style={{ color: "#5FC15F" }}>You are ready!</b>;
+      ready = <b>Você está pronto!</b>;
       joinReady = null;
     }
 
     return (
       <div className="joinGameContainer">
         <input
+          name="nick"
           type="text"
           placeholder="Nick"
           value={this.state.name}
@@ -196,6 +197,7 @@ export default class JoinGame extends Component {
           }}
         />
         <input
+          name="room"
           type="text"
           placeholder="Sala"
           value={this.state.roomCode}

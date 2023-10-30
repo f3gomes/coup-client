@@ -6,9 +6,18 @@
   border: 2px solid #707070;
   border-radius: 5px;
   line-height: 40%;
-  width: fit-content;
+  min-width: 5rem;
   padding-left: 10px;
   padding-right: 20px;
+  background-color: #f2f2f2;
+}
+
+.PlayerInfo > p:first-child {
+  font-weight: bold;
+}
+
+.MomentEvent {
+  font-size: 1.2rem;
 }
 
 .Rules,
@@ -26,6 +35,10 @@
   background-color: #f2f2f2;
   display: flex;
   align-items: center;
+  width: 6.3rem;
+
+  display: flex;
+  justify-content: center;
 }
 
 .HomeRules {
@@ -82,7 +95,7 @@ h3 {
 }
 
 .RulesContent h2 {
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 10px;
 }
 
@@ -105,9 +118,22 @@ h3 {
 .CloseModalButton {
   top: 10px;
   left: 10px;
-  padding: 0;
+  padding: 0.4rem;
   background-color: #ffffff;
-  border: 0px;
+  border: 1px solid black;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  position: absolute;
+}
+
+.CloseModalButton:hover {
+  background-color: #2b2b2b;
+  color: white;
+  transition-property: all;
+  transition-delay: 100ms;
 }
 
 .cls-1,
@@ -149,10 +175,10 @@ h3 {
 }
 
 .InfluenceSection {
-  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
   border-radius: 5px;
-  margin-bottom: 10px;
-  display: inline-block;
+  height: 27rem;
 }
 
 .InfluenceSection p {
@@ -169,11 +195,20 @@ h3 {
   display: inline-block;
 }
 
+.PlayerBoardContainer {
+  position: absolute;
+  left: 0;
+  top: 7rem;
+  display: flex;
+  flex-direction: column;
+}
+
 .CurrentPlayer {
   text-align: right;
   position: absolute;
   right: 15px;
   top: 5px;
+  font-weight: 500;
 }
 
 .EventLogContainer {
@@ -256,13 +291,9 @@ h3 {
   }
 }
 
-.GameHeader {
-  position: relative;
-  height: 22vh;
-}
-
 .GameContainer {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .circle {
@@ -280,16 +311,16 @@ h3 {
   align-items: center;
 }
 
-.DecisionsSection p {
-  width: 300px;
-}
-
-.DecisionsSectionBtn {
-  width: 100%;
+.DecisionsSection > div {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.DecisionButtonsContainer > div {
+  display: flex;
+  flex-direction: row;
 }
 
 .DecisionsSection button {
@@ -359,79 +390,5 @@ h3 {
 }
 
 .DecisionTitle {
-  text-align: left;
   margin-left: 22px;
-}
-
-@media only screen and (min-width: 1024px) {
-  .ReactModal__Content {
-    width: 60%;
-    margin: auto;
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-
-  .PlayerInfo {
-    left: 10vw;
-    top: 5vh;
-  }
-
-  .CurrentPlayer {
-    text-align: right;
-    position: absolute;
-    right: 10vw;
-    top: 5vh;
-  }
-
-  .Rules {
-    left: 10vw;
-    top: 14vh;
-    width: 100px;
-    font-weight: bold;
-    font-size: 2rem;
-    display: flex;
-    justify-content: center;
-  }
-
-  .CheatSheet {
-    left: 10vw;
-    top: 22vh;
-  }
-
-  .CheatSheetModal {
-    position: absolute;
-    top: 40px;
-    left: 40px;
-    right: 40px;
-    background-color: #ffffff;
-  }
-
-  .EventLogContainer {
-    text-align: right;
-    position: absolute;
-    right: 10vw;
-    top: 10vh;
-  }
-
-  .GameHeader {
-    height: 15vh;
-  }
-
-  .DecisionTitle {
-    margin-left: 10vw;
-  }
-
-  .DecisionButtonsContainer {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .DecisionButtonsContainer > div {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 }

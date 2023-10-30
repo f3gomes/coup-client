@@ -97,7 +97,11 @@ export default class Coup extends Component {
         let found = null;
         bind.state.players.forEach((player) => {
           if (item === player.name) {
-            found = <b style={{ color: player.color }}>{player.name} </b>;
+            found = (
+              <b key={index} style={{ color: player.color }}>
+                {player.name}{" "}
+              </b>
+            );
           }
         });
         if (found) {
@@ -386,11 +390,9 @@ export default class Coup extends Component {
     if (this.state.playerIndex != null && !this.state.isDead) {
       influences = (
         <div>
-          <p>Suas cartas</p>
+          <h3>Suas cartas</h3>
 
-          <div
-            style={{ width: "420px", display: "flex", flexDirection: "row" }}
-          >
+          <div>
             {this.state.players[this.state.playerIndex].influences.map(
               (influence, index) => {
                 return (
@@ -418,10 +420,10 @@ export default class Coup extends Component {
         </div>
       );
 
-      coins = <p>Moedas: {this.state.players[this.state.playerIndex].money}</p>;
+      coins = <p>{this.state.players[this.state.playerIndex].money} moedas</p>;
     }
     if (isWaiting && !this.state.isDead) {
-      waiting = <p>Esperando outros jogadores...</p>;
+      waiting = <p className="MomentEvent">Esperando outros jogadores...</p>;
     }
     if (this.state.disconnected) {
       return (
@@ -441,6 +443,7 @@ export default class Coup extends Component {
     }
     return (
       <div className="GameContainer">
+        <EventLog logs={this.state.logs}></EventLog>
         <div className="GameHeader">
           <div className="PlayerInfo">
             <p>{this.props.name}</p>
@@ -449,7 +452,6 @@ export default class Coup extends Component {
           <div className="CurrentPlayer">{currentPlayer}</div>
           <RulesModal />
           <CheatSheetModal />
-          <EventLog logs={this.state.logs}></EventLog>
         </div>
         <div className="InfluenceSection">{influences}</div>
         <PlayerBoard players={this.state.players}></PlayerBoard>
@@ -461,11 +463,9 @@ export default class Coup extends Component {
           {exchangeInfluences}
           {challengeDecision}
           {blockChallengeDecision}
-          <div className="DecisionsSectionBtn">
-            {blockDecision}
-            {pass}
-            {playAgain}
-          </div>
+          {blockDecision}
+          {pass}
+          {playAgain}
         </div>
         <b>{this.state.winner}</b>
         {this.state.playAgain}

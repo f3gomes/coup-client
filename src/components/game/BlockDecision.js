@@ -83,7 +83,7 @@ export default class BlockDecision extends Component {
               <b>{this.props.action.source}</b> está tentando usar ajuda externa
             </p>
             <button onClick={() => this.block("block_foreign_aid")}>
-              Bloquear Ajuda Externa
+              Bloquear
             </button>
           </>
         );

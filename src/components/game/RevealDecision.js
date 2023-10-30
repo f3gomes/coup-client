@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { influencesBR } from "../utils/translate";
 
 export default class RevealDecision extends Component {
   constructor(props) {
@@ -37,15 +38,17 @@ export default class RevealDecision extends Component {
     const influences = this.props.influences.map((x, index) => {
       return (
         <button id={x} key={index} onClick={() => this.selectInfluence(x)}>
-          {x}
+          {influencesBR[x]}
         </button>
       );
     });
+
     return (
       <div>
         <p>
-          A sua ação <b>{this.act}</b> foi contestada! Se você não revelar{" "}
-          {this.actionMap[this.act].join(" or ")} você perderá sua carta!{" "}
+          A sua ação <b>{this.act}</b> foi contestada! Se você não tiver um(a){" "}
+          {this.actionMap[this.act].join(" or ")} para revelar, perderá uma
+          carta!{" "}
         </p>
         {influences}
       </div>

@@ -69,8 +69,8 @@ export default class ActionDecision extends Component {
         .map((x, index) => {
           return (
             <button
-              style={{ backgroundColor: x.color }}
               key={index}
+              style={{ backgroundColor: x.color }}
               onClick={() => this.pickTarget(x.name)}
             >
               {x.name}
@@ -120,7 +120,7 @@ export default class ActionDecision extends Component {
 
     return (
       <>
-        <p className="DecisionTitle">Escolha uma ação:</p>
+        <p className="DecisionTitle MomentEvent">Escolha uma ação:</p>
         <div className="DecisionButtonsContainer">
           {controls}
           <p>{this.state.actionError}</p>

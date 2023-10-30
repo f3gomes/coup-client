@@ -11,9 +11,13 @@ export default class EventLog extends Component {
         <div className="EventLogBody" style={{ height: "200px" }}>
           {this.props.logs.map((x, index) => {
             if (index === this.props.logs.length - 1) {
-              return <p className="new">{x}</p>;
+              return (
+                <p key={index} className="new">
+                  {x}
+                </p>
+              );
             }
-            return <p>{x}</p>;
+            return <p key={index}>{x}</p>;
           })}
           <div
             style={{ float: "left", clear: "both" }}
