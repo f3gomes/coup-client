@@ -8,9 +8,11 @@ import BlockDecision from "./BlockDecision";
 import ChooseInfluence from "./ChooseInfluence";
 import ExchangeInfluences from "./ExchangeInfluences";
 import EventLog from "./EventLog";
-import ReactModal from "react-modal";
 import CheatSheetModal from "../CheatSheetModal";
 import RulesModal from "../RulesModal";
+
+import dukeImg from "../../assets/cards/duke.png";
+
 import "./CoupStyles.css";
 
 export default class Coup extends Component {
@@ -370,6 +372,10 @@ export default class Coup extends Component {
             (influence, index) => {
               return (
                 <div key={index} className="InfluenceUnitContainer">
+                  <div>
+                    <img src={""} alt="Carta" />
+                  </div>
+
                   <span
                     className="circle"
                     style={{
