@@ -79,7 +79,7 @@ export default class ActionDecision extends Component {
         });
     } else if (this.props.money < 10) {
       controls = (
-        <div style={{ display: "flex" }}>
+        <div>
           <button onClick={() => this.chooseAction("income")}>
             <span>Qualquer:</span>
             <span>Renda</span>
@@ -117,6 +117,7 @@ export default class ActionDecision extends Component {
         <button onClick={() => this.deductCoins("coup")}>Golpe</button>
       );
     }
+
     return (
       <>
         <p className="DecisionTitle">Escolha uma ação:</p>

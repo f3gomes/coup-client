@@ -11,7 +11,11 @@ import EventLog from "./EventLog";
 import CheatSheetModal from "../CheatSheetModal";
 import RulesModal from "../RulesModal";
 
-import dukeImg from "../../assets/cards/duke.png";
+import duke from "../../assets/cards/duke.png";
+import captain from "../../assets/cards/captain.png";
+import assassin from "../../assets/cards/assassin.png";
+import contessa from "../../assets/cards/contessa.png";
+import ambassador from "../../assets/cards/ambassador.png";
 
 import "./CoupStyles.css";
 
@@ -175,11 +179,13 @@ export default class Coup extends Component {
       isChooseAction: false,
     });
   };
+
   doneChallengeBlockingVote = () => {
     this.setState({ action: null }); //challemge
     this.setState({ blockChallengeRes: null }); //challenge a block
     this.setState({ blockingAction: null }); //block
   };
+
   closeOtherVotes = (voteType) => {
     if (voteType === "challenge") {
       this.setState({ blockChallengeRes: null }); //challenge a block
@@ -192,15 +198,19 @@ export default class Coup extends Component {
       this.setState({ blockingAction: null }); //block
     }
   };
+
   doneReveal = () => {
     this.setState({ revealingRes: null });
   };
+
   doneChooseInfluence = () => {
     this.setState({ isChoosingInfluence: false });
   };
+
   doneExchangeInfluence = () => {
     this.setState({ exchangeInfluence: null });
   };
+
   pass = () => {
     if (this.state.action != null) {
       //challengeDecision
@@ -245,6 +255,14 @@ export default class Coup extends Component {
     ambassador: "Embaixador",
   };
 
+  influencesImg = {
+    duke: duke,
+    captain: captain,
+    assassin: assassin,
+    contessa: contessa,
+    ambassador: ambassador,
+  };
+
   render() {
     let actionDecision = null;
     let currentPlayer = null;
@@ -260,6 +278,7 @@ export default class Coup extends Component {
     let playAgain = null;
     let isWaiting = true;
     let waiting = null;
+
     if (this.state.isChooseAction && this.state.playerIndex != null) {
       isWaiting = false;
       actionDecision = (
@@ -314,7 +333,7 @@ export default class Coup extends Component {
       this.state.blockChallengeRes != null ||
       this.state.blockingAction !== null
     ) {
-      pass = <button onClick={() => this.pass()}>Pass</button>;
+      pass = <button onClick={() => this.pass()}>Aceitar</button>;
     }
     if (this.state.action != null) {
       isWaiting = false;
@@ -366,29 +385,37 @@ export default class Coup extends Component {
     }
     if (this.state.playerIndex != null && !this.state.isDead) {
       influences = (
-        <>
+        <div>
           <p>Suas cartas</p>
-          {this.state.players[this.state.playerIndex].influences.map(
-            (influence, index) => {
-              return (
-                <div key={index} className="InfluenceUnitContainer">
-                  <div>
-                    <img src={""} alt="Carta" />
-                  </div>
 
-                  <span
-                    className="circle"
-                    style={{
-                      backgroundColor: `${this.influenceColorMap[influence]}`,
-                    }}
-                  ></span>
-                  <br></br>
-                  <h3>{this.influencesBR[influence]}</h3>
-                </div>
-              );
-            }
-          )}
-        </>
+          <div
+            style={{ width: "420px", display: "flex", flexDirection: "row" }}
+          >
+            {this.state.players[this.state.playerIndex].influences.map(
+              (influence, index) => {
+                return (
+                  <div key={index} className="InfluenceUnitContainer">
+                    <div>
+                      <img
+                        src={`${this.influencesImg[influence]}`}
+                        alt="Carta"
+                      />
+                    </div>
+                    <span
+                      className="circle"
+                      style={{
+                        marginTop: "2px",
+                        backgroundColor: `${this.influenceColorMap[influence]}`,
+                      }}
+                    ></span>
+                    <br></br>
+                    <h3>{this.influencesBR[influence]}</h3>
+                  </div>
+                );
+              }
+            )}
+          </div>
+        </div>
       );
 
       coins = <p>Moedas: {this.state.players[this.state.playerIndex].money}</p>;
@@ -434,9 +461,11 @@ export default class Coup extends Component {
           {exchangeInfluences}
           {challengeDecision}
           {blockChallengeDecision}
-          {blockDecision}
-          {pass}
-          {playAgain}
+          <div className="DecisionsSectionBtn">
+            {blockDecision}
+            {pass}
+            {playAgain}
+          </div>
         </div>
         <b>{this.state.winner}</b>
         {this.state.playAgain}

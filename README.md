@@ -1,3 +1,7 @@
+# coup-client
+
+License Rights: https://github.com/Cheneth/coup-online
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
