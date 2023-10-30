@@ -35,7 +35,7 @@ export default class ActionDecision extends Component {
         this.props.deductCoins(3);
         this.pickingTarget("assassinate");
       } else {
-        this.setState({ actionError: "Not enough coins to assassinate!" });
+        this.setState({ actionError: "Precisa de 3 moedas!" });
       }
     } else if (action === "coup") {
       if (this.props.money >= 7) {
@@ -81,33 +81,30 @@ export default class ActionDecision extends Component {
       controls = (
         <div>
           <button onClick={() => this.chooseAction("income")}>
-            <span>Qualquer:</span>
             <span>Renda</span>
+          </button>
+          <button onClick={() => this.chooseAction("foreign_aid")}>
+            <span>Ajuda Externa</span>
           </button>
           <button onClick={() => this.deductCoins("coup")}>
             {" "}
-            <span>Qualquer:</span>
             <span>Golpe</span>
           </button>
-          <button onClick={() => this.chooseAction("foreign_aid")}>
-            <span>Qualquer:</span>
-            <span>Ajuda Externa</span>
-          </button>
           <button id="captain" onClick={() => this.pickingTarget("steal")}>
-            <span>Capitão:</span>
             <span>Roubar</span>
+            <span>(Capitão)</span>
           </button>
           <button id="assassin" onClick={() => this.deductCoins("assassinate")}>
-            <span>Assassino:</span>
             <span>Assassinar</span>
+            <span>(Assassino)</span>
           </button>
           <button id="duke" onClick={() => this.chooseAction("tax")}>
-            <span>Duque:</span>
             <span>Taxar</span>
+            <span>(Duque)</span>
           </button>
           <button id="ambassador" onClick={() => this.chooseAction("exchange")}>
-            <span>Embaixador:</span>
             <span>Trocar</span>
+            <span>(Embaixador)</span>
           </button>
         </div>
       );
@@ -120,7 +117,7 @@ export default class ActionDecision extends Component {
 
     return (
       <>
-        <p className="DecisionTitle MomentEvent">Escolha uma ação:</p>
+        <p className="DecisionTitle MomentEvent">Escolher ação/alvo:</p>
         <div className="DecisionButtonsContainer">
           {controls}
           <p>{this.state.actionError}</p>

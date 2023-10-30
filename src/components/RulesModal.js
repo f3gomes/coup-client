@@ -42,24 +42,24 @@ export default class RulesModal extends Component {
               No seu turno, você pode escolher uma ação para jogar. A ação que
               você escolher pode ou não corresponder às carta que você possuir.
               Para a ação que você escolher, outros jogadores podem
-              potencialmente bloqueá-lo ou desafiá-lo.{" "}
+              potencialmente bloquear ou contestar.{" "}
             </p>
             <p>
-              <b>Desafio</b>: Quando um jogador declara uma ação, ele é
+              <b>Contestar</b>: Quando um jogador declara uma ação, ele é
               declarando ao resto dos jogadores que eles têm um certo
-              influência, e qualquer outro jogador pode desafiá-la. Quando um
-              jogador é desafiado, o jogador desafiado deve revelar o correto
+              influência, e qualquer outro jogador pode contestar. Quando um
+              jogador é contestado, o jogador contestado deve revelar o correto
               influência associada à sua ação. Se eles revelarem o correto
               influência, o jogador desafiante perderá influência. No entanto,
               se eles não conseguirem revelar a influência correta, o jogador
-              desafiado perderão sua influência revelada incorretamente.
+              contestado perderão sua influência revelada incorretamente.
             </p>
             <p>
               <b>Bloquear</b>: Quando qualquer uma das ações "Ajuda Externa",
               "Roubar", e "Assassinar" são usados, eles podem ser bloqueados.
               Mais uma vez, qualquer o jogador pode alegar ter a influência
-              correta para bloquear. No entanto, os blocos também podem ser
-              desafiados por qualquer jogador. Se um bloco falhar, o ação
+              correta para bloquear. No entanto, os bloqueios também podem ser
+              contestados por qualquer jogador. Se um bloco falhar, o ação
               original ocorrerá.
             </p>
             <p>
@@ -108,8 +108,8 @@ export default class RulesModal extends Component {
               <b> Renda </b>: Colete 1 moeda do tesouro. Não pode ser bloqueado.
             </p>
             <p>
-              <b> Ajuda externa </b>: colete 2 moedas do tesouro. Bloqueável por{" "}
-              <strong id="duke-color">Duque</strong>.
+              <b> Ajuda externa </b>: colete 2 moedas do tesouro. Pode ser
+              bloqueado por <strong id="duke-color">Duque</strong>.
             </p>
             <p>
               <b> Golpe </b>: Pague 7 moedas e escolha um alvo para perder uma

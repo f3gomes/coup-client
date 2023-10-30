@@ -83,20 +83,20 @@ export default class BlockDecision extends Component {
               <b>{this.props.action.source}</b> está tentando usar ajuda externa
             </p>
             <button onClick={() => this.block("block_foreign_aid")}>
-              Bloquear
+              Bloquear (Duke)
             </button>
           </>
         );
       } else if (this.props.action.action === "steal") {
         control = (
           <button onClick={() => this.pickClaim("block_steal")}>
-            Bloquear Roubo
+            Bloquear Capitão/Embaixador
           </button>
         );
       } else if (this.props.action.action === "assassinate") {
         control = (
           <button onClick={() => this.block("block_assassinate")}>
-            Bloquear Assassinato
+            Bloquear (Condessa)
           </button>
         );
       }
