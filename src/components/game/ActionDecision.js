@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import "./CoupStyles.css";
+import money from "../../assets/sounds/money.mp3";
+
+let audio = new Audio(money);
 
 export default class ActionDecision extends Component {
   constructor(props) {
@@ -15,6 +18,10 @@ export default class ActionDecision extends Component {
   }
 
   chooseAction = (action, target = null) => {
+    if (action === "income") {
+      audio.play();
+    }
+
     const res = {
       action: {
         action: action,
@@ -62,6 +69,7 @@ export default class ActionDecision extends Component {
 
   render() {
     let controls = null;
+
     if (this.state.isPickingTarget) {
       controls = this.props.players
         .filter((x) => !x.isDead)

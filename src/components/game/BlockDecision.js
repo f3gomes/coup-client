@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import noup from "../../assets/sounds/noup.mp3";
 
 export default class BlockDecision extends Component {
   constructor(props) {
@@ -27,15 +28,19 @@ export default class BlockDecision extends Component {
   };
 
   block = (block, claim = null) => {
+    let audio = new Audio(noup);
     this.props.closeOtherVotes("block");
     // res.prevAction.action, res.prevAction.target, res.prevAction.source, res.counterAction, res.blockee, res.blocker, res.isBlocking
     let resClaim;
     if (claim != null) {
       resClaim = claim;
+      audio.play();
     } else if (block === "block_foreign_aid") {
       resClaim = "duke";
+      audio.play();
     } else if (block === "block_assassinate") {
       resClaim = "contessa";
+      audio.play();
     } else {
       console.error("unknown claim, line 40");
     }

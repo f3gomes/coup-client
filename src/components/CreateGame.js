@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-import io from "socket.io-client";
 import { ReactSortable } from "react-sortablejs";
+import io from "socket.io-client";
 import Coup from "./game/Coup";
+import start from "../assets/sounds/start.mp3";
 
 const axios = require("axios");
 const baseUrl = process.env.REACT_APP_BACKEND_URL;
+let audio = new Audio(start);
 
 export default class CreateGame extends Component {
   constructor(props) {
@@ -103,6 +105,7 @@ export default class CreateGame extends Component {
   };
 
   startGame = () => {
+    audio.play();
     this.state.socket.emit("startGameSignal", this.state.players);
 
     this.state.socket.on("startGame", () => {

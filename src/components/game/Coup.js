@@ -10,6 +10,8 @@ import ExchangeInfluences from "./ExchangeInfluences";
 import EventLog from "./EventLog";
 import CheatSheetModal from "../CheatSheetModal";
 import RulesModal from "../RulesModal";
+import victory from "../../assets/sounds/victory.mp3";
+import money from "../../assets/sounds/money.mp3";
 
 import duke from "../../assets/cards/duke.png";
 import captain from "../../assets/cards/captain.png";
@@ -42,11 +44,13 @@ export default class Coup extends Component {
       waiting: true,
       disconnected: false,
     };
+
+    let audio = new Audio(victory);
+
     const bind = this;
 
     this.playAgainButton = (
       <>
-        <br></br>
         <button
           className="startGameButton hover"
           onClick={() => {
@@ -65,6 +69,11 @@ export default class Coup extends Component {
     this.props.socket.on("g-gameOver", (winner) => {
       bind.setState({ winner: `${winner} venceu!` });
       bind.setState({ playAgain: bind.playAgainButton });
+
+      audio.volume = 0.2;
+      setTimeout(() => {
+        audio.play();
+      }, 1000);
     });
     this.props.socket.on("g-updatePlayers", (players) => {
       bind.setState({ playAgain: null });
@@ -216,22 +225,29 @@ export default class Coup extends Component {
   };
 
   pass = () => {
+    let audioMoney = new Audio(money);
     if (this.state.action != null) {
       //challengeDecision
       let res = {
         isChallenging: false,
         action: this.state.action,
       };
-      console.log(res);
+      let act = res.action.action;
+      if (act === "steal" || act === "tax") {
+        audioMoney.play();
+      }
       this.props.socket.emit("g-challengeDecision", res);
     } else if (this.state.blockChallengeRes != null) {
       //BlockChallengeDecision
       let res = {
         isChallenging: false,
       };
-      console.log(res);
       this.props.socket.emit("g-blockChallengeDecision", res);
     } else if (this.state.blockingAction !== null) {
+      let act = this.state.blockingAction.action;
+      if (act === "foreign_aid") {
+        audioMoney.play();
+      }
       //BlockDecision
       const res = {
         action: this.state.blockingAction,
@@ -339,6 +355,7 @@ export default class Coup extends Component {
     ) {
       pass = <button onClick={() => this.pass()}>Aceitar</button>;
     }
+
     if (this.state.action != null) {
       isWaiting = false;
       challengeDecision = (
@@ -351,6 +368,7 @@ export default class Coup extends Component {
         ></ChallengeDecision>
       );
     }
+
     if (this.state.exchangeInfluence) {
       isWaiting = false;
       exchangeInfluences = (
@@ -362,6 +380,7 @@ export default class Coup extends Component {
         ></ExchangeInfluences>
       );
     }
+
     if (this.state.blockChallengeRes != null) {
       isWaiting = false;
       blockChallengeDecision = (
@@ -375,6 +394,7 @@ export default class Coup extends Component {
         ></BlockChallengeDecision>
       );
     }
+
     if (this.state.blockingAction !== null) {
       isWaiting = false;
       blockDecision = (
@@ -387,6 +407,7 @@ export default class Coup extends Component {
         ></BlockDecision>
       );
     }
+
     if (this.state.playerIndex != null && !this.state.isDead) {
       influences = (
         <div>
@@ -422,9 +443,11 @@ export default class Coup extends Component {
 
       coins = <p>{this.state.players[this.state.playerIndex].money} moedas</p>;
     }
+
     if (isWaiting && !this.state.isDead) {
       waiting = <p className="MomentEvent">Esperando outros jogadores...</p>;
     }
+
     if (this.state.disconnected) {
       return (
         <div className="GameContainer">
@@ -441,6 +464,7 @@ export default class Coup extends Component {
         </div>
       );
     }
+
     return (
       <div className="GameContainer">
         <EventLog logs={this.state.logs}></EventLog>

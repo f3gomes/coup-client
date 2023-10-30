@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import shuffle from "../../assets/sounds/shuffle.mp3";
 
 export default class ExchangeInfluences extends Component {
   constructor(props) {
@@ -11,6 +12,8 @@ export default class ExchangeInfluences extends Component {
   }
 
   selectInfluence = (index) => {
+    let audio = new Audio(shuffle);
+    audio.play();
     // res.revealedCard, prevaction, counterAction, challengee, challenger, isBlock
     this.state.keep.push(this.state.influences.splice(index, 1)[0]);
     this.setState({
@@ -36,9 +39,10 @@ export default class ExchangeInfluences extends Component {
         </button>
       );
     });
+
     return (
       <div>
-        <p className="DecisionTitle">Choose which influence(s) to keep</p>
+        <p className="DecisionTitle">Escolha as cartas para manter</p>
         {influences}
       </div>
     );

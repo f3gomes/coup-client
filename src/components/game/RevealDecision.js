@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { influencesBR } from "../utils/translate";
+import ohNo from "../../assets/sounds/oh_no.mp3";
 
 export default class RevealDecision extends Component {
   constructor(props) {
@@ -45,6 +46,7 @@ export default class RevealDecision extends Component {
 
     return (
       <div>
+        <audio src={ohNo} type="audio/mpeg" autoPlay />
         <p>
           A sua ação <b>{this.act}</b> foi contestada! Se você não tiver um(a){" "}
           {this.actionMap[this.act].join(" or ")} para revelar, perderá uma
