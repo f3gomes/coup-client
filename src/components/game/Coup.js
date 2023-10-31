@@ -71,10 +71,7 @@ export default class Coup extends Component {
       bind.setState({ winner: `${winner} venceu!` });
       bind.setState({ playAgain: bind.playAgainButton });
 
-      audio.volume = 0.2;
-      setTimeout(() => {
-        audio.play();
-      }, 1000);
+      audio.play();
     });
     this.props.socket.on("g-updatePlayers", (players) => {
       bind.setState({ playAgain: null });
