@@ -15,11 +15,7 @@ export default class Home extends Component {
             rel="noreferrer"
             href="https://www.amazon.com.br/Mandala-Jogos-MDL0000-Coup-Branco/dp/B07F4G4LJK"
           >
-            <img
-              src={cover}
-              alt="Card box"
-              style={{ width: "150px", height: "auto", cursor: "pointer" }}
-            />
+            <img src={cover} alt="Card box" className="coverImg" />
           </a>
           <div className="input-group-btn">
             <Link className="createBtn hover" to="/create">

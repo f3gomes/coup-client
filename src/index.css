@@ -233,3 +233,10 @@ input {
     display: none;
   }
 }
+
+@media (min-width: 1367px) {
+  .coverImg {
+    width: 150px !important;
+    height: auto !important;
+  }
+}
