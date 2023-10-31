@@ -22,12 +22,12 @@ export default class Home extends Component {
             />
           </a>
           <div className="input-group-btn">
-            <Link className="home hover" to="/create">
+            <Link className="createBtn hover" to="/create">
               Criar Jogo
             </Link>
           </div>
           <div className="input-group-btn">
-            <Link className="home hover" to="/join">
+            <Link className="joinBtn hover" to="/join">
               Entrar
             </Link>
           </div>
@@ -38,7 +38,7 @@ export default class Home extends Component {
           </div>
         </div>
         <div className="footer">
-          <div style={{ marginBottom: "12px" }}>
+          <div>
             Feito por{" "}
             <a
               className="website-link"
@@ -57,14 +57,16 @@ export default class Home extends Component {
               href="https://github.com/fomes"
               target="_blank"
               rel="noopener noreferrer"
-              style={{ textDecoration: "line-through" }}
             >
               Felipe Gomes
             </a>
             <b> Google Tradutor</b>
           </div>
+
+          <span>
+            <p className="version-number">Beta v1.9</p>
+          </span>
         </div>
-        <p className="version-number">Beta v0.9</p>
       </>
     );
   }
