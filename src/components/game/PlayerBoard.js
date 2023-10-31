@@ -1,5 +1,6 @@
 import React from "react";
 import "./PlayerBoardStyles.css";
+import { Icon } from "@iconify/react";
 
 export default function PlayerBoard(props) {
   let boardItems = null;
@@ -11,8 +12,18 @@ export default function PlayerBoard(props) {
         style={{ backgroundColor: `${player.color}` }}
       >
         <h2>{player.name}</h2>
-        <p>{player.money} moedas</p>
-        <p>{player.influences.length} cartas</p>
+
+        <div>
+          <span>
+            <p>{player.money}</p>
+            <Icon icon="noto:coin" />
+          </span>
+
+          <span>
+            <p>{player.influences.length}</p>
+            <Icon icon="fxemoji:flowerplayingcards" />
+          </span>
+        </div>
       </div>
     ));
   }

@@ -6,7 +6,7 @@
   border: 2px solid #707070;
   border-radius: 5px;
   line-height: 40%;
-  min-width: 5rem;
+  width: 6.4rem;
   padding-left: 10px;
   padding-right: 20px;
   background-color: #f2f2f2;
@@ -73,6 +73,10 @@
   margin-top: 5px;
   width: 100%;
   height: auto;
+}
+
+.Rules {
+  width: 7.8rem;
 }
 
 .Rules p,
@@ -387,4 +391,53 @@ h3 {
 
 .DecisionTitle {
   margin-left: 22px;
+}
+
+@media (max-width: 412px) {
+  .DecisionButtonsContainer > div {
+    flex-direction: column;
+  }
+
+  .DecisionButtonsContainer > div > button {
+    width: 14rem;
+    font-size: 0.9rem;
+  }
+
+  .InfluenceSection {
+    height: 18rem;
+  }
+
+  .InfluenceSection > div {
+    position: absolute;
+    font-size: 0.8rem;
+    left: 2rem;
+    width: 6rem;
+  }
+
+  .InfluenceSection > div > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .InfluenceUnitContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+    margin-top: -1rem;
+  }
+
+  .InfluenceUnitContainer > span {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .InfluenceUnitContainer {
+    display: flex;
+    justify-content: center;
+  }
+
+  .PlayerInfo {
+    display: none;
+  }
 }

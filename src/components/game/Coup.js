@@ -8,7 +8,6 @@ import BlockDecision from "./BlockDecision";
 import ChooseInfluence from "./ChooseInfluence";
 import ExchangeInfluences from "./ExchangeInfluences";
 import EventLog from "./EventLog";
-import CheatSheetModal from "../CheatSheetModal";
 import RulesModal from "../RulesModal";
 import victory from "../../assets/sounds/victory.mp3";
 import money from "../../assets/sounds/money.mp3";
@@ -457,7 +456,6 @@ export default class Coup extends Component {
               {coins}
             </div>
             <RulesModal />
-            <CheatSheetModal />
           </div>
           <p>Voce foi desconectado!</p>
           <p>Por favor crie outra sala.</p>
@@ -475,7 +473,6 @@ export default class Coup extends Component {
           </div>
           <div className="CurrentPlayer">{currentPlayer}</div>
           <RulesModal />
-          <CheatSheetModal />
         </div>
         <div className="InfluenceSection">{influences}</div>
         <PlayerBoard players={this.state.players}></PlayerBoard>
