@@ -209,6 +209,7 @@ h3 {
   right: 15px;
   top: 5px;
   font-weight: 500;
+  font-size: 1.2rem;
 }
 
 .EventLogContainer {
@@ -294,6 +295,7 @@ h3 {
 .GameContainer {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .circle {

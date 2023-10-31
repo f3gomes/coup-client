@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { influencesBR } from "../utils/translate";
+import { influencesBR } from "../../utils/translate";
 import kill from "../../assets/sounds/kill.mp3";
 
 export default class ChooseInfluence extends Component {

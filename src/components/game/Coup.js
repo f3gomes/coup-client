@@ -11,6 +11,7 @@ import EventLog from "./EventLog";
 import RulesModal from "../RulesModal";
 import victory from "../../assets/sounds/victory.mp3";
 import money from "../../assets/sounds/money.mp3";
+import start from "../../assets/sounds/start.mp3";
 
 import duke from "../../assets/cards/duke.png";
 import captain from "../../assets/cards/captain.png";
@@ -45,17 +46,18 @@ export default class Coup extends Component {
     };
 
     let audio = new Audio(victory);
+    let audioStart = new Audio(start);
 
     const bind = this;
 
+    const handlePlayAgain = () => {
+      this.props.socket.emit("g-playAgain");
+      audioStart.play();
+    };
+
     this.playAgainButton = (
       <>
-        <button
-          className="startGameButton hover"
-          onClick={() => {
-            this.props.socket.emit("g-playAgain");
-          }}
-        >
+        <button className="startGameButton hover" onClick={handlePlayAgain}>
           Jogar Novamente
         </button>
       </>
@@ -314,7 +316,7 @@ export default class Coup extends Component {
     if (this.state.currentPlayer) {
       currentPlayer = (
         <p>
-          Vez de <b>{this.state.currentPlayer}</b>
+          * Vez de <b>{this.state.currentPlayer}</b>
         </p>
       );
     }

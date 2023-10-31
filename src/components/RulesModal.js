@@ -92,15 +92,15 @@ export default class RulesModal extends Component {
             <hr />
             <h3>Embaixador</h3>
             <p>
-              <b id="ambassador-color">TROCAR </b>: Escolha 2 influencia em seu
-              Mãe e escolha duas carta para recuperar. Não pode ser bloqueado.
-              Pode bloquear <strong id="captain-color">ROUBAR</strong>
+              <b id="ambassador-color">TROCAR </b>: Escolha 2 cartas em sua mão
+              e escolha duas carta para recuperar. Não pode ser bloqueado. Pode
+              bloquear <strong id="captain-color">ROUBAR</strong>
             </p>
             <hr />
             <h3>Condessa</h3>
             <p>
-              <b id="contessa-color">BLOQUEAR ASSASSINO</b>: Can block{" "}
-              <b id="assassin-color">assassinations</b>. Não pode ser bloqueado.
+              <b id="contessa-color">BLOQUEAR ASSASSINO</b>: Pode bloquear{" "}
+              <b id="assassin-color">assassinatos</b>. Não pode ser bloqueado.
             </p>
             <hr />
             <h3>Outras ações</h3>
@@ -108,7 +108,7 @@ export default class RulesModal extends Component {
               <b> Renda </b>: Colete 1 moeda do tesouro. Não pode ser bloqueado.
             </p>
             <p>
-              <b> Ajuda externa </b>: colete 2 moedas do tesouro. Pode ser
+              <b> Ajuda externa </b>: Colete 2 moedas do tesouro. Pode ser
               bloqueado por <strong id="duke-color">Duque</strong>.
             </p>
             <p>

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { influencesBR } from "../../utils/translate";
 import shuffle from "../../assets/sounds/shuffle.mp3";
 
 export default class ExchangeInfluences extends Component {
@@ -35,7 +36,7 @@ export default class ExchangeInfluences extends Component {
     const influences = this.state.influences.map((x, index) => {
       return (
         <button key={index} onClick={() => this.selectInfluence(index)}>
-          {x}
+          {influencesBR[x]}
         </button>
       );
     });

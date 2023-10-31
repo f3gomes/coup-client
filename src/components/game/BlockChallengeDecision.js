@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { actionsBR, influencesBR } from "../../utils/translate";
 
 export default class BlockChallengeDecision extends Component {
   vote = (isChallenging) => {
@@ -19,10 +20,12 @@ export default class BlockChallengeDecision extends Component {
   render() {
     return (
       <>
+        {console.log("first", this.props.prevAction.action)}
         <p>
           {this.props.counterAction.source} está tentando bloquear{" "}
-          {this.props.prevAction.action} de {this.props.prevAction.source} como{" "}
-          {this.props.counterAction.claim}
+          <strong>{actionsBR[this.props.prevAction.action]} </strong>
+          de {this.props.prevAction.source} como{" "}
+          <strong>{influencesBR[this.props.counterAction.claim]}</strong>
         </p>
         <button onClick={() => this.vote(true)}>Contestar</button>
         {/* <button onClick={() => this.vote(false)}>Pass</button> */}

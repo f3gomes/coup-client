@@ -95,10 +95,14 @@ input {
   gap: 0.8rem;
 }
 
-.footer > span {
+.footer > div:last-child {
   position: absolute;
   bottom: 0;
   right: 0;
+}
+
+.footer > span > a {
+  text-decoration: line-through;
 }
 
 .homeModalContainer {
@@ -169,6 +173,7 @@ input {
 .startGameButton {
   font-family: "Muli", sans-serif;
   background-color: #5fc15f;
+  width: 15.4rem;
   border: none;
   color: white;
   margin: 20px;

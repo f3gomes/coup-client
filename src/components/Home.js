@@ -50,7 +50,7 @@ export default class Home extends Component {
             </a>
           </div>
 
-          <div>
+          <span>
             Traduzido por{" "}
             <a
               className="website-link"
@@ -61,11 +61,11 @@ export default class Home extends Component {
               Felipe Gomes
             </a>
             <b> Google Tradutor</b>
-          </div>
-
-          <span>
-            <p className="version-number">Beta v1.9</p>
           </span>
+
+          <div>
+            <p className="version-number">Beta v1.9</p>
+          </div>
         </div>
       </>
     );

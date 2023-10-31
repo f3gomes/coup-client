@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { influencesBR } from "../utils/translate";
+import { actionsBR, influencesBR } from "../../utils/translate";
 import ohNo from "../../assets/sounds/oh_no.mp3";
+import kill from "../../assets/sounds/kill.mp3";
 
 export default class RevealDecision extends Component {
   constructor(props) {
@@ -22,6 +23,8 @@ export default class RevealDecision extends Component {
 
   selectInfluence = (influence) => {
     // res.revealedCard, prevaction, counterAction, challengee, challenger, isBlock
+    let audio = new Audio(kill);
+    audio.play();
     const res = {
       revealedCard: influence,
       prevAction: this.props.res.action,
@@ -44,13 +47,16 @@ export default class RevealDecision extends Component {
       );
     });
 
+    let influence1 = this.actionMap[this.act][0];
+    let influence2 = this.actionMap[this.act][1];
+
     return (
       <div>
         <audio src={ohNo} type="audio/mpeg" autoPlay />
         <p>
-          A sua ação <b>{this.act}</b> foi contestada! Se você não tiver um(a){" "}
-          {this.actionMap[this.act].join(" or ")} para revelar, perderá uma
-          carta!{" "}
+          A sua ação <b>{actionsBR[this.act]}</b> foi contestada! Se você não
+          tiver um(a) {influencesBR[influence1]} {influence2 && "ou"}{" "}
+          {influencesBR[influence2]} para revelar, perderá uma carta!{" "}
         </p>
         {influences}
       </div>
