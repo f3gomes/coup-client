@@ -20,21 +20,22 @@ h3 {
   font-family: "Muli", sans-serif;
 }
 
-input {
-  font-size: 20px;
-  padding-left: 2px;
-  border: 2px solid #bcbcbc;
-  border-radius: 5px;
-  outline: none;
-  transition: 0.5s;
-}
-
 input[type="text"]:focus {
   border: 2px solid #555;
 }
 
 button {
   cursor: pointer;
+  border-radius: 8px;
+}
+
+input,
+a {
+  border-radius: 8px;
+}
+
+input {
+  border: 2px solid #bcbcbc;
 }
 
 .version-number {
@@ -51,7 +52,6 @@ button {
   color: #000000;
   font-weight: 600;
   background-color: #f2f2f2;
-  border-radius: 5px;
   padding: 5px;
   transition-duration: 0.3s;
 }
@@ -63,6 +63,7 @@ button {
 
 .createGameContainer,
 .joinGameContainer {
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,12 +71,18 @@ button {
   gap: 0.4rem;
 }
 
-.joinGameContainer > input {
-  width: 150px;
+.createGameContainer > input {
+  width: 14rem;
+  height: 3rem;
+  padding: 0 0.6rem;
+  font-size: 20px;
+  outline: none;
 }
 
-.createGameContainer > input {
-  width: 150px;
+.joinGameContainer > input {
+  width: 14rem;
+  height: 3rem;
+  padding: 0 0.6rem;
 }
 
 .footer {
@@ -108,6 +115,7 @@ button {
   margin-bottom: 40px;
 }
 
+/* Home */
 .createBtn,
 .joinBtn {
   padding: 5px;
@@ -115,7 +123,6 @@ button {
   padding-bottom: 10px;
   min-width: 100px;
   width: 12.5rem;
-  border-radius: 5px;
   font-family: "Muli", sans-serif;
   background-color: #73c373;
   border: none;
@@ -131,7 +138,6 @@ button {
 .RoomCode {
   background-color: #f2f2f2;
   border: 2px solid #707070;
-  border-radius: 5px;
   margin: 5px;
   padding: 5px;
   cursor: pointer;
@@ -139,9 +145,8 @@ button {
 
 .createButton,
 .joinButton {
-  height: 30px;
-  width: 158px;
-  border-radius: 5px;
+  width: 15.4rem;
+  height: 3rem;
   font-family: "Muli", sans-serif;
   background-color: #73c373;
   border: none;
@@ -162,7 +167,6 @@ button {
 }
 
 .startGameButton {
-  border-radius: 5px;
   font-family: "Muli", sans-serif;
   background-color: #5fc15f;
   border: none;
@@ -187,7 +191,6 @@ button {
 
 .readyUnit {
   width: 200px;
-  border-radius: 5px;
   font-family: "Muli", sans-serif;
   background-color: #73c373;
   border: none;
