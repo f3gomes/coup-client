@@ -98,7 +98,7 @@ export default class CreateGame extends Component {
         console.log("error in creating namespace", err);
         bind.setState({ isLoading: false });
         bind.setState({
-          errorMsg: "Erro na criação de sala, servidor está inacessível",
+          errorMsg: "O servidor não foi iniciado!",
         });
         bind.setState({ isError: true });
       });
