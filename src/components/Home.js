@@ -7,6 +7,15 @@ export default class Home extends Component {
   render() {
     return (
       <>
+        <a
+          target="_blank"
+          rel="noreferrer"
+          className="btnStartServer hover"
+          href="https://coup-server-db0h.onrender.com/"
+        >
+          Iniciar Servidor
+        </a>
+
         <div className="homeContainer">
           <h1>Bem-vindo ao Coup</h1>
           <p>Um jogo de dedução e engano</p>

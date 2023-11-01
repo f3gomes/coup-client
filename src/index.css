@@ -119,6 +119,10 @@ input {
   margin-bottom: 40px;
 }
 
+.homeContainer > h1:first-child {
+  margin-top: 1.5rem;
+}
+
 /* Home */
 .createBtn,
 .joinBtn {
@@ -137,6 +141,18 @@ input {
   display: inline-block;
   font-size: 14px;
   font-weight: bold;
+}
+
+.btnStartServer {
+  background-color: #73c373;
+  color: white;
+  text-decoration: none;
+  position: absolute;
+  border: none;
+  top: 0.2rem;
+  left: 0.2rem;
+  padding: 0.4rem;
+  font-size: 0.7rem;
 }
 
 .RoomCode {
