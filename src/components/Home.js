@@ -11,7 +11,7 @@ export default class Home extends Component {
           target="_blank"
           rel="noreferrer"
           className="btnStartServer hover"
-          href="https://coup-server-db0h.onrender.com/"
+          href="https://coup-server-fych.onrender.com"
         >
           Iniciar Servidor
         </a>
