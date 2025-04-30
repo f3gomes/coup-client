@@ -94,8 +94,9 @@ export default class ActionDecision extends Component {
           >
             <span>Renda</span>
             <span className="tooltip-text">
-              +1 do tesouro <br />
-              Sem contestação
+              +1 do tesouro
+              <br /> ✅ Sem bloqueio
+              <br /> ✅ Sem contestação
             </span>
           </button>
           <button
@@ -104,15 +105,19 @@ export default class ActionDecision extends Component {
           >
             <span>Ajuda Externa</span>
             <span className="tooltip-text">
-              +2 do tesouro <br /> 🚫 Duque
+              +2 do tesouro
+              <br /> 🚫 Duque
+              <br /> ✅ Sem contestação
             </span>
           </button>
           <button className="tooltip" onClick={() => this.deductCoins("coup")}>
             {" "}
             <span>Golpe</span>
             <span className="tooltip-text">
-              Matar um alvo <br />
-              Sem contestação <br /> 💰 7
+              Matar um alvo
+              <br /> 💰 Custa 7
+              <br /> ✅ Sem bloqueio
+              <br /> ✅ Sem contestação
             </span>
           </button>
           <button
@@ -126,6 +131,7 @@ export default class ActionDecision extends Component {
               Rouba +2 de um alvo
               <br /> 🚫 Capitão
               <br /> 🚫 Embaixador
+              <br /> 🤔 Contestável
             </span>
           </button>
           <button
@@ -136,7 +142,10 @@ export default class ActionDecision extends Component {
             <span>Assassinar</span>
             <span>(Assassino)</span>
             <span className="tooltip-text">
-              Matar um alvo <br /> 💰 3
+              Matar um alvo
+              <br /> 💰 Custa 3
+              <br /> 🚫 Condessa
+              <br /> 🤔 Contestável
             </span>
           </button>
           <button
@@ -146,7 +155,11 @@ export default class ActionDecision extends Component {
           >
             <span>Taxar</span>
             <span>(Duque)</span>
-            <span className="tooltip-text">+3 do tesouro</span>
+            <span className="tooltip-text">
+              +3 do tesouro
+              <br /> ✅ Sem bloqueio
+              <br /> 🤔 Contestável
+            </span>
           </button>
           <button
             className="tooltip"
@@ -155,7 +168,11 @@ export default class ActionDecision extends Component {
           >
             <span>Trocar</span>
             <span>(Embaixador)</span>
-            <span className="tooltip-text">Trocar as cartas</span>
+            <span className="tooltip-text">
+              Trocar as cartas
+              <br /> ✅ Sem bloqueio
+              <br /> 🤔 Contestável
+            </span>
           </button>
         </div>
       );
