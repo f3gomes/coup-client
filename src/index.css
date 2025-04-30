@@ -244,6 +244,55 @@ input {
   align-items: center;
 }
 
+/* TOLLTIP */
+
+button.tooltip {
+  position: relative;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button.tooltip .tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  width: 140px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 8px;
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.3s;
+  font-size: 13px;
+  z-index: 1;
+}
+
+button.tooltip .tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+button.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* TOLLTIP */
+
 @media (max-width: 412px) {
   .InfluenceUnitContainer > div > img {
     display: none;

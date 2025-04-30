@@ -88,31 +88,74 @@ export default class ActionDecision extends Component {
     } else if (this.props.money < 10) {
       controls = (
         <div>
-          <button onClick={() => this.chooseAction("income")}>
+          <button
+            className="tooltip"
+            onClick={() => this.chooseAction("income")}
+          >
             <span>Renda</span>
+            <span className="tooltip-text">
+              +1 do tesouro <br />
+              Sem contestação
+            </span>
           </button>
-          <button onClick={() => this.chooseAction("foreign_aid")}>
+          <button
+            className="tooltip"
+            onClick={() => this.chooseAction("foreign_aid")}
+          >
             <span>Ajuda Externa</span>
+            <span className="tooltip-text">
+              +2 do tesouro <br /> 🚫 Duque
+            </span>
           </button>
-          <button onClick={() => this.deductCoins("coup")}>
+          <button className="tooltip" onClick={() => this.deductCoins("coup")}>
             {" "}
             <span>Golpe</span>
+            <span className="tooltip-text">
+              Matar um alvo <br />
+              Sem contestação <br /> 💰 7
+            </span>
           </button>
-          <button id="captain" onClick={() => this.pickingTarget("steal")}>
+          <button
+            className="tooltip"
+            id="captain"
+            onClick={() => this.pickingTarget("steal")}
+          >
             <span>Roubar</span>
             <span>(Capitão)</span>
+            <span className="tooltip-text">
+              Rouba +2 de um alvo
+              <br /> 🚫 Capitão
+              <br /> 🚫 Embaixador
+            </span>
           </button>
-          <button id="assassin" onClick={() => this.deductCoins("assassinate")}>
+          <button
+            className="tooltip"
+            id="assassin"
+            onClick={() => this.deductCoins("assassinate")}
+          >
             <span>Assassinar</span>
             <span>(Assassino)</span>
+            <span className="tooltip-text">
+              Matar um alvo <br /> 💰 3
+            </span>
           </button>
-          <button id="duke" onClick={() => this.chooseAction("tax")}>
+          <button
+            className="tooltip"
+            id="duke"
+            onClick={() => this.chooseAction("tax")}
+          >
             <span>Taxar</span>
             <span>(Duque)</span>
+            <span className="tooltip-text">+3 do tesouro</span>
           </button>
-          <button id="ambassador" onClick={() => this.chooseAction("exchange")}>
+          <button
+            className="tooltip"
+            id="ambassador"
+            onClick={() => this.chooseAction("exchange")}
+          >
             <span>Trocar</span>
             <span>(Embaixador)</span>
+            <span className="tooltip-text">Trocar as cartas</span>
           </button>
         </div>
       );

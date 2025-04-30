@@ -322,6 +322,8 @@ h3 {
 
 .DecisionButtonsContainer > div {
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   flex-direction: row;
 }
 
