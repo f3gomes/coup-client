@@ -26,6 +26,12 @@ export default class Coup extends Component {
     super(props);
 
     this.state = {
+      revealInfluences: false,
+    };
+
+    this.toggleReveal = this.toggleReveal.bind(this);
+
+    this.state = {
       action: null,
       blockChallengeRes: null,
       players: [],
@@ -73,33 +79,37 @@ export default class Coup extends Component {
 
       audio.play();
     });
+
     this.props.socket.on("g-updatePlayers", (players) => {
       bind.setState({ playAgain: null });
       bind.setState({ winner: null });
       players = players.filter((x) => !x.isDead);
+
       let playerIndex = null;
       for (let i = 0; i < players.length; i++) {
-        console.log(players[i].name, this.props.name);
         if (players[i].name === this.props.name) {
           playerIndex = i;
           break;
         }
       }
+
       if (playerIndex == null) {
         this.setState({ isDead: true });
       } else {
         this.setState({ isDead: false });
       }
-      console.log(playerIndex);
+
       bind.setState({ playerIndex, players });
     });
+
     this.props.socket.on("g-updateCurrentPlayer", (currentPlayer) => {
-      console.log("currentPlayer: ", currentPlayer);
       bind.setState({ currentPlayer });
     });
+
     this.props.socket.on("g-addLog", (log) => {
       let splitLog = log.split(" ");
       let coloredLog = [];
+
       coloredLog = splitLog.map((item, index) => {
         let found = null;
         bind.state.players.forEach((player) => {
@@ -116,12 +126,14 @@ export default class Coup extends Component {
         }
         return <>{item + " "}</>;
       });
+
       bind.state.logs = [...bind.state.logs, coloredLog];
       bind.setState({ logs: bind.state.logs });
     });
     this.props.socket.on("g-chooseAction", () => {
       bind.setState({ isChooseAction: true });
     });
+
     this.props.socket.on("g-openExchange", (drawTwo) => {
       let influences = [
         ...bind.state.players[bind.state.playerIndex].influences,
@@ -139,6 +151,7 @@ export default class Coup extends Component {
         bind.setState({ action: null });
       }
     });
+
     this.props.socket.on("g-openBlockChallenge", (blockChallengeRes) => {
       if (this.state.isDead) {
         return;
@@ -149,6 +162,7 @@ export default class Coup extends Component {
         bind.setState({ blockChallengeRes: null });
       }
     });
+
     this.props.socket.on("g-openBlock", (action) => {
       if (this.state.isDead) {
         return;
@@ -159,8 +173,8 @@ export default class Coup extends Component {
         bind.setState({ blockingAction: null });
       }
     });
+
     this.props.socket.on("g-chooseReveal", (res) => {
-      console.log(res);
       bind.setState({ revealingRes: res });
     });
     this.props.socket.on("g-chooseInfluence", () => {
@@ -175,6 +189,12 @@ export default class Coup extends Component {
     this.props.socket.on("g-closeBlockChallenge", () => {
       bind.setState({ blockChallengeRes: null });
     });
+  }
+
+  toggleReveal() {
+    this.setState((prevState) => ({
+      revealInfluences: !prevState.revealInfluences,
+    }));
   }
 
   deductCoins = (amount) => {
@@ -251,7 +271,6 @@ export default class Coup extends Component {
         action: this.state.blockingAction,
         isBlocking: false,
       };
-      console.log(res);
       this.props.socket.emit("g-blockDecision", res);
     }
     this.doneChallengeBlockingVote();
@@ -282,6 +301,8 @@ export default class Coup extends Component {
   };
 
   render() {
+    const { revealInfluences } = this.state;
+
     let actionDecision = null;
     let currentPlayer = null;
     let revealDecision = null;
@@ -310,6 +331,7 @@ export default class Coup extends Component {
         ></ActionDecision>
       );
     }
+
     if (this.state.currentPlayer) {
       currentPlayer = (
         <p>
@@ -317,6 +339,7 @@ export default class Coup extends Component {
         </p>
       );
     }
+
     if (this.state.revealingRes) {
       isWaiting = false;
       revealDecision = (
@@ -332,6 +355,7 @@ export default class Coup extends Component {
         ></RevealDecision>
       );
     }
+
     if (this.state.isChoosingInfluence) {
       isWaiting = false;
       chooseInfluenceDecision = (
@@ -346,6 +370,7 @@ export default class Coup extends Component {
         ></ChooseInfluence>
       );
     }
+
     if (
       this.state.action != null ||
       this.state.blockChallengeRes != null ||
@@ -411,26 +436,38 @@ export default class Coup extends Component {
         <div>
           <h3>Suas cartas</h3>
 
-          <div>
+          <div className="card-container">
             {this.state.players[this.state.playerIndex].influences.map(
               (influence, index) => {
                 return (
-                  <div key={index} className="InfluenceUnitContainer">
-                    <div>
-                      <img
-                        src={`${this.influencesImg[influence]}`}
-                        alt="Carta"
-                      />
-                    </div>
-                    <span
-                      className="circle"
-                      style={{
-                        marginTop: "2px",
-                        backgroundColor: `${this.influenceColorMap[influence]}`,
-                      }}
-                    ></span>
-                    <br></br>
-                    <h3>{this.influencesBR[influence]}</h3>
+                  <div
+                    key={index}
+                    onClick={this.toggleReveal}
+                    className="InfluenceUnitContainer"
+                  >
+                    {revealInfluences ? (
+                      <>
+                        <div>
+                          <img
+                            src={`${this.influencesImg[influence]}`}
+                            alt="Carta"
+                          />
+                        </div>
+                        <span
+                          className="circle"
+                          style={{
+                            marginTop: "2px",
+                            backgroundColor: `${this.influenceColorMap[influence]}`,
+                          }}
+                        ></span>
+                        <br></br>
+                        <h3>{this.influencesBR[influence]}</h3>
+                      </>
+                    ) : (
+                      <div className="InfluenceUnitContainerHide">
+                        Clique para revelar
+                      </div>
+                    )}
                   </div>
                 );
               }

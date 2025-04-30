@@ -189,10 +189,27 @@ h3 {
   text-align: center;
 }
 
+.card-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.2rem;
+}
+
 .InfluenceUnitContainer {
   width: 220px;
   text-align: center;
   display: inline-block;
+  cursor: pointer;
+}
+
+.InfluenceUnitContainerHide {
+  height: 367px;
+  width: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e2e8f0;
+  cursor: pointer;
 }
 
 .PlayerBoardContainer {
